@@ -63,17 +63,62 @@ namespace Gameshop_AdoNet.Db
 
 		public int Insert(Game igra)
 		{
-			
+			using (var conn = new SqlConnection(Properties.Settings.Default.connString))
+            {
+				conn.Open();
+				var cmd = new SqlCommand(
+					@"INSERT INTO [Game]([title],[idGenre],[idPublisher],[price],[idDeveloper],
+						[releaseDate],[image]) VALUES
+					(@title, @idGenre, @idPublisher, @price, @idDeveloper, @releaseDate, @image)",
+					conn);
+				cmd.Parameters.AddWithValue("@title", igra.Title);
+				cmd.Parameters.AddWithValue("@idGenre", igra.IdGenre);
+				cmd.Parameters.AddWithValue("@idPublisher", igra.IdPublisher);
+				cmd.Parameters.AddWithValue("@price", igra.Price);
+				cmd.Parameters.AddWithValue("@idDeveloper", igra.IdDeveloper);
+				cmd.Parameters.AddWithValue("@releaseDate", igra.ReleaseDate);
+				cmd.Parameters.AddWithValue("@image", igra.Image);
+				cmd.ExecuteNonQuery();
+				return 1;
+			}
 		}
 
 		public int Update(Game igra)
 		{
-			
+			using (var conn = new SqlConnection(Properties.Settings.Default.connString))
+            {
+				conn.Open();
+				var cmd = new SqlCommand(
+				  @"UPDATE [Game]
+					   SET [title] = @title
+						  ,[idGenre] = @idGenre
+						  ,[idPublisher] = @idPublisher
+						  ,[price] = @price
+						  ,[idDeveloper] = @idDeveloper
+						  ,[releaseDate] = @releaseDate
+						  ,[image] = @image
+					 WHERE id = @id", conn);
+				cmd.Parameters.AddWithValue("@title", igra.Title);
+				cmd.Parameters.AddWithValue("@idGenre", igra.IdGenre);
+				cmd.Parameters.AddWithValue("@idPublisher", igra.IdPublisher);
+				cmd.Parameters.AddWithValue("@price", igra.Price);
+				cmd.Parameters.AddWithValue("@idDeveloper", igra.IdDeveloper);
+				cmd.Parameters.AddWithValue("@releaseDate", igra.ReleaseDate);
+				cmd.Parameters.AddWithValue("@image", igra.Image);
+				cmd.Parameters.AddWithValue("@id", igra.Id);
+				return cmd.ExecuteNonQuery();
+			}
 		}
 
 		public void Delete(int id)
 		{
-			
+			using (var conn = new SqlConnection(Properties.Settings.Default.connString))
+            {
+				conn.Open();
+				var cmd = new SqlCommand("DELETE FROM Game WHERE id = @id", conn);
+				cmd.Parameters.AddWithValue("@id", id);
+				cmd.ExecuteNonQuery();
+			}
 		}
 	}
 	
