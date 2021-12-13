@@ -115,7 +115,8 @@ namespace Gameshop_AdoNet.Db
 			using (var conn = new SqlConnection(Properties.Settings.Default.connString))
             {
 				conn.Open();
-				var cmd = new SqlCommand("DELETE FROM Game WHERE id = @id", conn);
+				var cmd = new SqlCommand("DELETE FROM Game WHERE id = @id"
+					, conn);
 				cmd.Parameters.AddWithValue("@id", id);
 				cmd.ExecuteNonQuery();
 			}
