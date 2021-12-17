@@ -16,5 +16,12 @@ namespace GameshopWeb.Db
         public DbSet<Game> Games { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Company> Companies { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Game>().ToTable("Game");
+            modelBuilder.Entity<Genre>().ToTable("Genre");
+            modelBuilder.Entity<Company>().ToTable("Company");
+        }
     }
 }
