@@ -52,6 +52,9 @@ namespace GameshopWeb
 
             app.UseRouting();
 
+            app.UseDefaultFiles();      //bitan redoslijed, prvo default pa static
+            app.UseStaticFiles();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

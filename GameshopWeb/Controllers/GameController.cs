@@ -30,10 +30,22 @@ namespace GameshopWeb.Controllers
             return context.Companies.ToList();
         }
 
-        [HttpGet("bygenre")]
+        [HttpGet("bygenre/{id}")]
         public List<Game> GetByGenre(int id)
         {
             return context.Games.Where(g => g.IdGenre == id).ToList();
+        }
+
+        [HttpGet("bycompany/{id}")]
+        public List<Game> GetByCompany(int id)
+        {
+            return context.Games.Where(g => g.IdDeveloper == id || g.IdPublisher == id).ToList();
+        }
+
+        [HttpGet("search/{query}")]
+        public List<Game> Search(string query)
+        {
+            return context.Games.Where(g => g.Title.Contains(query)).ToList();
         }
 
     }
