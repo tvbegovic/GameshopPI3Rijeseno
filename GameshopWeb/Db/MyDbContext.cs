@@ -22,6 +22,16 @@ namespace GameshopWeb.Db
             modelBuilder.Entity<Game>().ToTable("Game");
             modelBuilder.Entity<Genre>().ToTable("Genre");
             modelBuilder.Entity<Company>().ToTable("Company");
+
+            //relacija između Game i Genre
+            modelBuilder.Entity<Game>().HasOne(g => g.Genre).WithMany()
+                .HasForeignKey(g => g.IdGenre);
+            //relacija game - developer
+            modelBuilder.Entity<Game>().HasOne(g => g.Developer).WithMany()
+                .HasForeignKey(g => g.IdDeveloper);
+            //relacija game - publisher
+            modelBuilder.Entity<Game>().HasOne(g => g.Publisher).WithMany()
+                .HasForeignKey(g => g.IdPublisher);
         }
     }
 }
