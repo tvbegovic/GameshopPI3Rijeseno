@@ -17,11 +17,17 @@ namespace GameshopWeb.Db
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Company> Companies { get; set; }
 
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<User> Users { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Game>().ToTable("Game");
             modelBuilder.Entity<Genre>().ToTable("Genre");
             modelBuilder.Entity<Company>().ToTable("Company");
+            modelBuilder.Entity<Order>().ToTable("Order");
+            modelBuilder.Entity<OrderDetail>().ToTable("OrderDetail");
+            modelBuilder.Entity<User>().ToTable("User");
 
             //relacija između Game i Genre
             modelBuilder.Entity<Game>().HasOne(g => g.Genre).WithMany()
@@ -32,6 +38,12 @@ namespace GameshopWeb.Db
             //relacija game - publisher
             modelBuilder.Entity<Game>().HasOne(g => g.Publisher).WithMany()
                 .HasForeignKey(g => g.IdPublisher);
+            //relacija order-orderdetail
+            modelBuilder.Entity<Order>().HasMany(o => o.Details).WithOne()
+                .HasForeignKey(d => d.IdOrder);
+            //relacija order - user
+            modelBuilder.Entity<Order>().HasOne(o => o.User).WithMany()
+                .HasForeignKey(o => o.IdUser);
         }
     }
 }

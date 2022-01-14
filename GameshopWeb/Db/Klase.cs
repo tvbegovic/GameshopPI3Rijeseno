@@ -37,6 +37,9 @@ namespace GameshopWeb.Db
         public int? IdEmployee { get; set; }
         public DateTime? DateOrdered { get; set; }
         public DateTime? DateSent { get; set; }
+
+        public List<OrderDetail> Details { get; set; }
+        public User User { get; set; }
     }
     public class OrderDetail
     {
