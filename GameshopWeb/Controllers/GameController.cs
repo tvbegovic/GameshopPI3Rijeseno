@@ -56,5 +56,23 @@ namespace GameshopWeb.Controllers
                 .ToList();
         }
 
+        [HttpGet("listModel")]
+        public ListModel GetListModel()
+        {
+            return new ListModel
+            {
+                Games = context.Games.ToList(),
+                Genres = context.Genres.ToList(),
+                Companies = context.Companies.ToList()
+            };
+        }
+
+    }
+
+    public class ListModel
+    {
+        public List<Game> Games { get; set; }
+        public List<Genre> Genres { get; set; }
+        public List<Company> Companies { get; set; }
     }
 }
