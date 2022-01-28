@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30717.126
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gameshop_AdoNet", "Gameshop_AdoNet\Gameshop_AdoNet.csproj", "{1F0FAE15-C41E-4DD8-B040-068C38C105E1}"
 EndProject
@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gameshop_Dapper", "Gameshop
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gameshop_EFCore", "Gameshop_EFCore\Gameshop_EFCore.csproj", "{CB1E668D-AD81-4582-8C87-590CDDAACA8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameshopWeb", "GameshopWeb\GameshopWeb.csproj", "{7C90EAEC-0CD3-4249-873A-AC50D074DAD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameshopWeb", "GameshopWeb\GameshopWeb.csproj", "{7C90EAEC-0CD3-4249-873A-AC50D074DAD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShopWeb", "OnlineShopWeb\OnlineShopWeb.csproj", "{416EC0D8-8516-4A01-9008-836B622BAE68}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{7C90EAEC-0CD3-4249-873A-AC50D074DAD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C90EAEC-0CD3-4249-873A-AC50D074DAD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C90EAEC-0CD3-4249-873A-AC50D074DAD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{416EC0D8-8516-4A01-9008-836B622BAE68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{416EC0D8-8516-4A01-9008-836B622BAE68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{416EC0D8-8516-4A01-9008-836B622BAE68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{416EC0D8-8516-4A01-9008-836B622BAE68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
