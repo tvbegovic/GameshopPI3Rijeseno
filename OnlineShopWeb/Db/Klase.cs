@@ -90,5 +90,8 @@ namespace OnlineShopWeb.Db
         public decimal? Price { get; set; }
         public int? IdManufacturer { get; set; }
         public int? IdCategory { get; set; }
+
+        public Category Category { get; set; }
+        public Manufacturer Manufacturer { get; set; }
     }
 }

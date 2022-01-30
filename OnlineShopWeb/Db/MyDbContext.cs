@@ -20,6 +20,9 @@ namespace OnlineShopWeb.Db
         {
             modelBuilder.Entity<Product>().ToTable("Product");
             modelBuilder.Entity<Employee>().ToTable("Employee");
+
+            modelBuilder.Entity<Product>().HasOne(p => p.Category).WithMany().HasForeignKey(p => p.IdCategory);
+            modelBuilder.Entity<Product>().HasOne(p => p.Manufacturer).WithMany().HasForeignKey(p => p.IdManufacturer);
         }
     }
 }
